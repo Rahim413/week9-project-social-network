@@ -1,27 +1,189 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Arial', sans-serif;
+  color: #333; 
+  line-height: 1.6; 
+  margin-top: 5px;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+.homepage {
+  background-image: url('/homePage.jpg'); 
+  background-size: cover; 
+  background-position: center; 
+  height: 100vh; 
+  margin-top: 20px;
+  color: white;
+  font-size: 24px;
+}
+.homepage h1 {
+  font-size: 2.5rem;          
+  color: #333;                
+  text-align: center;         
+  padding-top: 95px;      
+  font-family: 'Helvetica', sans-serif;
+  text-transform: uppercase;
+}
+
+.homepage p {
+  margin-top: 70px;          
+  color: white;           
+  font-size: 2.5rem;          
+  font-family: Arial, sans-serif;
+  text-align: center; 
+}
+
+
+.navbar {
+  background-color: rgba(22, 22, 71, 0.749); 
+  padding: 10px 30px;
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+}
+
+.nav-container {
+  display: flex; 
+  align-items: center; 
+}
+
+.nav-links {
+  display: flex;
+  gap: 70px; 
+}
+
+.nav-item {
+  color: white; 
+  text-decoration: none; 
+  font-size: 24px; 
+  padding: 30px 120px; 
+}
+
+.nav-item:hover {
+  color: #cfd5dc;
+}
+
+.user-button {
+  background-color: rgba(73, 73, 199, 0.749);
+  color: white; 
+  border: none; 
+  padding: 0px 30px; 
+  border-radius: 50px; 
+  cursor: pointer; 
+  font-size: 18px; 
+  transition: background-color 0.3s ease; 
+}
+
+.user-button:hover {
+  background-color: #005bb5; 
+}
+
+.radix-dropdown-item {
+  padding: 12px 16px; 
+  color: #de0909; 
+  text-decoration: none; 
+  display: block; 
+  border-radius: 10px; 
+  transition: background-color 0.2s; 
+}
+
+.radix-dropdown-item:hover {
+  background-color: #f1f1f1; 
+  color: #f1f1f1; 
+}
+
+.posts-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px; 
+}
+
+.posts-table th,
+.posts-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+.posts-table th {
+  background-color: #0070f3; 
+  color: white; 
+}
+
+.posts-table tr:nth-child(even) {
+  background-color: #f9f9f9; 
+}
+
+.posts-table tr:hover {
+  background-color: #f1f1f1; 
+}
+
+.profile-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 40px;
+}
+
+.profile-table td {
+  padding: 12px;
+  border: 2px solid #ddd; 
+}
+
+.post-form,
+form {
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 1px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input:focus, textarea:focus {
+  border-color: #0070f3; 
+  outline: none; 
+}
+
+button {
+  padding: 10px 10px;
+  margin-left: 20px;
+  background-color: #0070f3; 
+  color: white; 
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  transition: background-color 0.3s ease; 
+}
+
+button:hover {
+  background-color: #005bb5; 
+}
+
+@media (max-width: 700px) { 
+  .navbar {
+    flex-direction: column; 
+    padding: 10px 15px;
+  }
+
+  .nav-links {
+    flex-direction: column; 
+    gap: 10px;
+  }
+
+  .nav-item {
+    padding: 10px 20px; 
+  }
+
+  .logo {
+    margin-bottom: 10px; 
   }
 }
