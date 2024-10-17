@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 
 export default async function PostsPage() {
   const { userId } = auth();
+
   const db = connect();
 
   const postResults = await db.query(`
@@ -18,14 +19,21 @@ export default async function PostsPage() {
   `);
 
   async function handleCreatePost(formData) {
+
     "use server";
+    const db = connect();
+
     const content = formData.get("content");
     const title = formData.get("title");
 
     await db.query(`
       INSERT INTO posts_table (clerk_id, title, content) VALUES ($1, $2, $3)
     `, [userId, title, content]);
+
+    // Revalidate the path to refresh the posts
     revalidatePath("/posts");
+
+    // Redirect to the posts page after submission
     redirect("/posts");
   }
 
